@@ -19,7 +19,7 @@ def parse_args():
     parser = ArgumentParser(description="BPRMF")
 
     parser.add_argument('--data_path', type=str, default='/home/ubuntu/duc.nm195858/data/ml-1m')
-    parser.add_argument('--gpu_id', type=int, default=2)
+    parser.add_argument('--gpu_id', type=int, default=1)
     parser.add_argument('--val_ratio', type=float, default=0.1, help="Proportion of validation set")
     parser.add_argument('--test_ratio', type=float, default=0.1, help="Proportion of testing set")
     #model
@@ -51,6 +51,7 @@ def get_device(no_cuda=False, gpus='1'):
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
 
 
 def train():
